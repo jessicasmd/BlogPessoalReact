@@ -6,3 +6,19 @@
 .text-decorator-none{
     text-decoration: none;
 }
+a:link{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:visited{
+    color: #ffffff;
+}
+
+a:hover{
+    color: #ffffff;
+}
+
+a:active{
+    color: #ffffff;
+}
