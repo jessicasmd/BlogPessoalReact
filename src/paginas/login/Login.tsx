@@ -35,7 +35,7 @@ function Login() {
         async function onSubmit(e: ChangeEvent<HTMLFormElement>){
             e.preventDefault();
             try{
-                await login(`/usuarios/logar`, userLogin, setToken)
+                await login(`/usuario/logar`, userLogin, setToken)
 
                 alert('Usuário logado com sucesso!');
             }catch(error){
@@ -52,10 +52,10 @@ function Login() {
                         <TextField value={userLogin.usuario} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth />
                         <TextField value={userLogin.senha} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password'fullWidth />
                         <Box marginTop={2} textAlign='center'>
-                                <Button type='submit' variant='contained' color='primary'>
+                             <Button type='submit' variant='contained' color='primary'>
                                     Logar
                                 </Button>
-                        </Box>
+                            </Box>
                     </form>
                     <Box display='flex' justifyContent='center' marginTop={2}>
                         <Box marginRight={1}>
