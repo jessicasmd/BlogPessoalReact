@@ -31,7 +31,7 @@ function CadastroTema() {
     }, [id])
 
     async function findById(id: string) {
-        buscaId(`/temas/${id}`, setTema, {  
+        buscaId(`/temas/${id}`, setTema, {
             headers: {
               'Authorization': token
             }
@@ -47,7 +47,8 @@ function CadastroTema() {
     
         }
         
-        async function onSubmit(e: ChangeEvent<HTMLFormElement>) {e.preventDefault()
+        async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+            e.preventDefault()
             console.log("tema " + JSON.stringify(tema))
     
             if (id !== undefined) {

@@ -13,7 +13,7 @@ function DeletarPostagem() {
     const [post, setPosts] = useState<Postagem>()
 
     useEffect(() => {
-        if (token == "") {
+        if (token === "") {
             alert("Você precisa estar logado")
             history.push("/login")
     
