@@ -18,7 +18,7 @@ function Navbar() {
         <>
             <AppBar position="static" style={{backgroundColor: "violet"}}> 
                 <Toolbar variant="dense" >
-                    <Box style={{ cursor: "pointer"}}>
+                    <Box className='cursor'>
                         <Typography variant="h3" color="inherit">
                             Blog Pessoal
                         </Typography>
@@ -53,7 +53,7 @@ function Navbar() {
                             </Typography>
                         </Box>
                         </Link>
-                                                    <Box mx={1} className='cursor' onClick={goLogout}>
+                             <Box mx={1} className='cursor' onClick={goLogout}>
                                 <Typography variant="h6" color="inherit"  >
                                     Logout
                                 </Typography>

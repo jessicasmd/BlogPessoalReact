@@ -8,7 +8,7 @@ import useLocalStorage from 'react-use-localstorage';
 import { useHistory } from 'react-router-dom'
 
 function ListaPostagem() {
-  const [posts, setPosts] = useState<Postagem[]>([])
+  const [postagens, setPostagens] = useState<Postagem[]>([])
   const [token, setToken] = useLocalStorage('token');
   let history = useHistory();
 
@@ -20,8 +20,8 @@ function ListaPostagem() {
     }
   }, [token])
 
-  async function getPost() {
-    await busca("/postagens", setPosts, {
+  async function getPostagem() {
+    await busca("/postagens", setPostagens, {
       headers: {
         'Authorization': token
       }
@@ -30,14 +30,14 @@ function ListaPostagem() {
 
   useEffect(() => {
 
-    getPost()
+    getPostagem()
 
-  }, [posts.length])
+  }, [postagens.length])
 
   return (
     <>
       {
-        posts.map(post => (
+        postagens.map(postagem => (
           <Box m={2} >
             <Card variant="outlined">
               <CardContent>
@@ -45,29 +45,29 @@ function ListaPostagem() {
                   Postagens
                 </Typography>
                 <Typography variant="h5" component="h2">
-                  {post.titulo}
+                  {postagem.titulo}
                 </Typography>
                 <Typography variant="body2" component="p">
-                  {post.texto}
+                  {postagem.texto}
                 </Typography>
                 <Typography variant="body2" component="p">
-                  {post.tema?.descricao}
+                  {postagem.tema?.descricao}
                 </Typography>
               </CardContent>
               <CardActions>
                 <Box display="flex" justifyContent="center" mb={1.5}>
 
-                  <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
+                  <Link to={`/formularioPostagem/${postagem.id}`} className="text-decorator-none" >
                     <Box mx={1}>
                       <Button variant="contained" className="marginLeft" size='small' color="primary" >
-                        atualizar
+                        Atualizar
                       </Button>
                     </Box>
                   </Link>
-                  <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
+                  <Link to={`/deletarPostagem/${postagem.id}`} className="text-decorator-none">
                     <Box mx={1}>
                       <Button variant="contained" size='small' color="secondary">
-                        deletar
+                        Deletar
                       </Button>
                     </Box>
                   </Link>
