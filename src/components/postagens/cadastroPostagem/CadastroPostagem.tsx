@@ -14,7 +14,7 @@ function CadastroPostagem() {
     const [token, setToken] = useLocalStorage('token');
 
     useEffect(() => {
-        if (token == "") {
+        if (token === "") {
             alert("Você precisa estar logado")
             history.push("/login")
 
@@ -48,7 +48,7 @@ function CadastroPostagem() {
     }, [id])
 
     async function getTemas() {
-        await busca("/temas", setTema, {
+        await busca("/temas", setTemas, {
             headers: {
                 'Authorization': token
             }
@@ -107,17 +107,15 @@ function CadastroPostagem() {
                 <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="texto" name="texto" variant="outlined" margin="normal" fullWidth />
 
                 <FormControl >
-                    <InputLabel id="demo-simple-select-helper-label">Tema</InputLabel>
+                    <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
                     <Select
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
-
-                        onChange={(e) => buscaId(`/temas/${e.target.value}`, setTema, {
+                        onChange={(e) => buscaId(`/tema/${e.target.value}`, setTema, {
                             headers: {
                                 'Authorization': token
                             }
-                        })}
-                        >
+                        })}>
                         {
                             temas.map(tema => (
                                 <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
