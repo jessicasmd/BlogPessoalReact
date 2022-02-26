@@ -14,7 +14,7 @@ function DeletarPostagem() {
 
     useEffect(() => {
         if (token === "") {
-            alert("Você precisa estar logado")
+            alert("Para acessar, faça login.")
             history.push("/login")
     
         }
@@ -41,7 +41,7 @@ function DeletarPostagem() {
                 'Authorization': token
               }
             });
-            alert('Postagem deletada com sucesso');
+            alert('Postagem deletada com sucesso!');
           }
         
           function nao() {
@@ -70,7 +70,7 @@ function DeletarPostagem() {
               </Button>
               </Box>
               <Box>
-              <Button  onClick={nao} variant="contained" size='large' color="secondary">
+              <Button onClick={nao} variant="contained" size='large' color="secondary">
                 Não
               </Button>
               </Box>
